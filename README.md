@@ -4,7 +4,7 @@ Want all the Starr Drops, sprays and coins, but don't have the time to watch the
 
 AutoBSC++ can automatically complete the events during the stream, including Cheers, Polls (choosing MVP), Quizzes, Loot Drops and Match Predictions.
 
-Tested on Last Chance Qualifier (August 2024), but should work on other Championship streams as well.
+Tested on Brawl Stars Championship (November 2024), but should work on other Championship streams as well.
 
 ![AutoBSC](https://github.com/LaptopCat/AutoBSC/raw/master/showcase.png)
 
@@ -43,6 +43,8 @@ Automatically send cheers (emojis on the bottom corners of the stream) to receiv
 Automatically respond to "Who was the MVP of this match?" polls to receive 100 points. Enabled by default
 - Answer quiz:
 Automatically provide the correct answer to quizzes, such as "What does Melodie use as a weapon?" to receive 50 points. Enabled by default
+- Answer slider:
+Automatically slide the interactive sliders to receive 2 points. Enabled by default
 - Collect lootdrop:
 Automatically collect random loot drops to receive 10 points. Enabled by default
 - Autopredict:
@@ -56,7 +58,6 @@ Disable cheer graphics to improve performance on low-end hardware. Disabled by d
 
 ## Known issues
 - Cheers not being sent if no cheer emote selected
-- No slider interaction support
 
 ## License
 
