@@ -4,7 +4,7 @@
 // @homepageURL  https://github.com/LaptopCat/AutoBSC
 // @supportURL   https://github.com/LaptopCat/AutoBSC/issues
 // @license      MIT
-// @version      0.2.1
+// @version      0.2.2
 // @description  Auto completes Brawl Stars Championship live stream events
 // @author       laptopcat
 // @match        https://event.supercell.com/brawlstars/*
@@ -12,35 +12,54 @@
 // @grant        none
 // ==/UserScript==
 
+function load(key, def) {
+    let res = localStorage.getItem("autobsc-" + key)
+
+    if (res === null) {
+        store(key, def)
+        return def
+    } else {
+        return JSON.parse(res)
+    }
+}
+
+function store(key, val) {
+    localStorage.setItem("autobsc-"+key, JSON.stringify(val))
+}
+
 // ==================== Begin AutoBSC Configuration ====================
 // This is the default configuration
+// load(config_key, default_value)
+// Do not change the config key unless you know what you are doing
 
 // Auto send cheer, +5 points
-let cheerEnabled = true;
+let cheerEnabled = load("cheer", true);
 
 // Auto send poll (choosing MVP), always choose the first option, +100 points
-let pollEnabled = true;
+let pollEnabled = load("poll", true);
 
 // Auto send quiz, always choose correct option
-let quizEnabled = true;
+let quizEnabled = load("quiz", true);
 
 // Auto send match prediction
-// Note: It's recommended to submit your own prediction before matches start. If the semifinals or grand finals don't follow your previous predictions, you will have chance to submit a new prediction and you can let AutoBSC to do it for you.
-let matchPredictionEnabled = false;
+let matchPredictionEnabled = load("matchPrediction", false);
 
 // Team selection strategy
 // Can be 1 (select first team), 2 (select second team), rand (select random), maj (follow majority)
 // This setting will only be used if match prediction is enabled
-let matchPredictionStrategy = "maj"
+let matchPredictionStrategy = load("predictionStrategy", "maj")
 
 // Auto collect lootdrops (randomly appearing 10 point drops)
-let dropEnabled = true;
+let dropEnabled = load("drop", true);
+
+// Auto collect sliders
+let sliderEnabled = load("slider", true);
 
 // Log events (such as sending cheer) to the feed
-let feedLoggingEnabled = true;
+let feedLoggingEnabled = load("feedLogging", true);
 
 // Remove cheer graphics (improves performance? haven't tested but pretty sure it does)
-let lowDetail = false;
+let lowDetail = load("lowDetail", false);
 
 // Debug logging of websocket messages to console
 let debug = false;
@@ -117,6 +136,7 @@ function purge(elements) {
   let lastQuizId = "";
   let lastDropId = "";
   let lastMatchPredictionId = "";
+  let lastSliderId = "";
 
   const OriginalWebSocket = window.WebSocket;
 
@@ -289,6 +309,26 @@ function purge(elements) {
           }, 2000)
         }
       }
+
+      if (messageType === "slider" && sliderEnabled) {
+        if (event.payload.typeId !== lastSliderId) {
+          log("Collecting slider")
+
+          setTimeout(() => {
+            for (let drop of document.getElementsByClassName("SliderQuestionCard")) {
+              try {
+                let elem = drop.getElementsByTagName("input")[0]
+                elem.value = "100"
+                elem.dispatchEvent(new InputEvent("input"))
+                elem.dispatchEvent(new Event("change"))
+              } catch (e) {
+                console.error("[AutoBSC]", e)
+              }
+            }
+            lastSliderId = event.payload.typeId
+          }, 2000)
+        }
+      }
     })
   }
 
@@ -365,6 +405,8 @@ function purge(elements) {
 
   <div class="autobsc-config-container">Answer quiz <input type="checkbox" id="autobsc-quiz"></div>
 
+  <div class="autobsc-config-container">Answer slider <input type="checkbox" id="autobsc-slider"></div>
+
   <div class="autobsc-config-container">Collect lootdrop <input type="checkbox" id="autobsc-lootdrop"></div>
 
   <div class="autobsc-config-container">Autopredict <input type="checkbox" id="autobsc-predict"></div>
@@ -391,6 +433,7 @@ function purge(elements) {
       cheer: document.getElementById("autobsc-cheer"),
       poll: document.getElementById("autobsc-poll"),
       quiz: document.getElementById("autobsc-quiz"),
+      slider: document.getElementById("autobsc-slider"),
       lootdrop: document.getElementById("autobsc-lootdrop"),
       predict: document.getElementById("autobsc-predict"),
       predictstrat: document.getElementById("autobsc-predict-strat"),
@@ -401,38 +444,52 @@ function purge(elements) {
     elems.cheer.checked = cheerEnabled
     elems.poll.checked = pollEnabled
     elems.quiz.checked = quizEnabled
+    elems.slider.checked = sliderEnabled
     elems.predict.checked = matchPredictionEnabled
     elems.lootdrop.checked = dropEnabled
     elems.feedlogging.checked = feedLoggingEnabled
 
     elems.predictstrat.value = matchPredictionStrategy
-    elems.lowdetail.value = lowDetail
+    elems.lowdetail.checked = lowDetail
 
     elems.cheer.onchange = function(e) {
       cheerEnabled = e.target.checked
+      store("cheer", cheerEnabled)
     }
     elems.poll.onchange = function(e) {
       pollEnabled = e.target.checked
+      store("poll", pollEnabled)
     }
     elems.quiz.onchange = function(e) {
       quizEnabled = e.target.checked
+      store("quiz", quizEnabled)
+    }
+
+    elems.slider.onchange = function(e) {
+      sliderEnabled = e.target.checked
+      store("slider", sliderEnabled)
     }
     elems.predict.onchange = function(e) {
       matchPredictionEnabled = e.target.checked
+      store("matchPrediction", matchPredictionEnabled)
     }
     elems.lootdrop.onchange = function(e) {
       dropEnabled = e.target.checked
+      store("drop", dropEnabled)
     }
     elems.feedlogging.onchange = function(e) {
       feedLoggingEnabled = e.target.checked
+      store("feedLogging", feedLoggingEnabled)
     }
 
     elems.predictstrat.onchange = function(e) {
       matchPredictionStrategy = e.target.value
+      store("predictionStrategy", matchPredictionStrategy)
     }
 
     elems.lowdetail.onchange = function(e) {
         lowDetail = e.target.checked
+        store("lowDetail", lowDetail)
         if (!lowDetail) {
             return
         }
