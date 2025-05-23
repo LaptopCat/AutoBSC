@@ -4,7 +4,7 @@
 // @homepageURL  https://github.com/LaptopCat/AutoBSC
 // @supportURL   https://github.com/LaptopCat/AutoBSC/issues
 // @license      MIT
-// @version      0.2.3
+// @version      0.2.4
 // @description  Auto completes Brawl Stars Championship live stream events
 // @author       laptopcat
 // @match        https://event.supercell.com/brawlstars/*
@@ -77,7 +77,7 @@ function log(msg) {
     if (!feed) {return}
   }
 
-  feed.children[feed.children.length - 1].insertAdjacentHTML("afterend", `<div data-v-d6e82d06="" data-v-e516d47b="" class="contentCardContainer" style="translate: none; rotate: none; scale: none; transform: translate(0px);">
+  feed.children[feed.children.length - 2].insertAdjacentHTML("afterend", `<div data-v-d6e82d06="" data-v-e516d47b="" class="contentCardContainer" style="translate: none; rotate: none; scale: none; transform: translate(0px);">
     <div data-v-ff43890a="" data-v-d6e82d06="" class="baseCard baseCard--paper" radius="medium">
         <div data-v-d6e82d06="" class="contentCard contentCard--paper contentCard--isFullWidth contentCard--enabled">
             <div data-v-d6e82d06="" class="contentCard__gameBackground"></div>
@@ -220,9 +220,9 @@ function purge(elements) {
           log("Sending quiz");
 
           setTimeout(() => {
-            for (let que of document.getElementsByClassName("BaseCard")) {
+            for (let que of document.getElementsByClassName("baseCard")) {
               try {
-                if (que.getElementsByClassName("Points__correctAnswer").length === 0) {
+                if (que.getElementsByClassName("cardRules__extraPoints").length === 0) {
                   continue
                 }
 
