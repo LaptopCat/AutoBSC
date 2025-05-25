@@ -373,27 +373,27 @@ function purge(elements) {
   </div>
 
   <h1>Config</h1>
-  <div class="autobsc-config-container">Autocheer <input type="checkbox" id="autobsc-cheer"></div>
+  <div class="autobsc-config-container" title="Automatically sends cheers for the teams.">Autocheer <input type="checkbox" id="autobsc-cheer"></div>
 
-  <div class="autobsc-config-container">Answer polls <input type="checkbox" id="autobsc-poll"></div>
+  <div class="autobsc-config-container" title="Automatically answers polls (MVP selection) by choosing the first option.">Answer polls <input type="checkbox" id="autobsc-poll"></div>
 
-  <div class="autobsc-config-container">Answer quiz <input type="checkbox" id="autobsc-quiz"></div>
+  <div class="autobsc-config-container" title="Automatically answers quizzes with the correct option.">Answer quiz <input type="checkbox" id="autobsc-quiz"></div>
 
-  <div class="autobsc-config-container">Answer slider <input type="checkbox" id="autobsc-slider"></div>
+  <div class="autobsc-config-container" title="Automatically sets sliders to 100% and submits.">Answer slider <input type="checkbox" id="autobsc-slider"></div>
 
-  <div class="autobsc-config-container">Collect lootdrop <input type="checkbox" id="autobsc-lootdrop"></div>
+  <div class="autobsc-config-container" title="Automatically collects loot drops that appear on screen.">Collect lootdrop <input type="checkbox" id="autobsc-lootdrop"></div>
 
-  <div class="autobsc-config-container">Autopredict <input type="checkbox" id="autobsc-predict"></div>
+  <div class="autobsc-config-container" title="Automatically sends match predictions based on the selected strategy.">Autopredict <input type="checkbox" id="autobsc-predict"></div>
 
-  <div class="autobsc-config-container">Autopredict strategy <select style="width: 3.825rem;" id="autobsc-predict-strat">
+  <div class="autobsc-config-container" title="Strategy for selecting a team for auto-prediction.">Autopredict strategy <select id="autobsc-predict-strat">
   <option value="1">Blue</option>
   <option value="2">Red</option>
   <option value="rand">Random</option>
   <option value="maj">Follow majority</option>
 </select></div>
 
-  <div class="autobsc-config-container">Feed logging <input type="checkbox" id="autobsc-feedlogging"></div>
-  <div class="autobsc-config-container">Low Detail Mode <input type="checkbox" id="autobsc-lowdetail"></div>
+  <div class="autobsc-config-container" title="Logs actions performed by the script (e.g., sending cheer) to the feed.">Feed logging <input type="checkbox" id="autobsc-feedlogging"></div>
+  <div class="autobsc-config-container" title="Removes some graphical effects like cheers to potentially improve performance.">Low Detail Mode <input type="checkbox" id="autobsc-lowdetail"></div>
 
   <button style="background-color: red; border: none; color: white;" onclick='if (confirm("Are you sure? You will only be able to open the overlay again by reloading the page")) document.getElementById("autobsc-overlay").remove()'>Destroy overlay</button>
 
