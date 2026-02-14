@@ -312,7 +312,7 @@ function purge(elements) {
           setTimeout(() => {
             for (let drop of document.getElementsByClassName("lootDropCard")) {
               try {
-                drop.getElementsByClassName("RectangleButton")[0].click()
+                drop.getElementsByClassName("rectangleButton")[0].click()
               } catch (e) {
                 console.error("[AutoBSC]", e)
               }
