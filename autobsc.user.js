@@ -4,7 +4,7 @@
 // @homepageURL  https://github.com/LaptopCat/AutoBSC
 // @supportURL   https://github.com/LaptopCat/AutoBSC/issues
 // @license      MIT
-// @version      0.3.0
+// @version      0.3.1
 // @description  Auto completes Brawl Stars Championship live stream events
 // @author       laptopcat
 // @match        https://event.supercell.com/brawlstars/*
@@ -77,18 +77,18 @@ function log(msg) {
     if (!feed) {return}
   }
 
-  feed.children[feed.children.length - 2].insertAdjacentHTML("afterend", `<div data-v-900a64ae="" data-v-98f05fca="" id="card-unlockReward-0"><!---->
-    <div data-v-8f245dd1="" data-v-900a64ae="" class="contentCardContainer" with-extra-top-margin="" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px); opacity: 1; --v4b705ce2: #245fc1;">
-        <div data-v-615f3480="" data-v-8f245dd1="" class="baseCard baseCard--paper" radius="medium">
-            <div data-v-615f3480="" class="baseCard__cardBackground baseCard__cardBackground--paper-1"></div>
-            <div data-v-8f245dd1="" class="contentCard contentCard--paper contentCard--isFullWidth contentCard--enabled"><!---->
-                <div data-v-8f245dd1="" class="contentCard__gameBackground"></div><!---->
-                <div data-v-8f245dd1="" class="contentCard__slot">
-                    <div data-v-900a64ae="" class="rewardCard">
-                        <div data-v-900a64ae="" class="rewardCard__rewardContainer">
-                            <div data-v-900a64ae="" class="rewardCard__infoContainer">
-                                <div data-v-900a64ae="" class="rewardCard__textContainer" style="opacity: 1;">
-                                    <div data-v-900a64ae="" class="rewardCard__textContainer__title">${msg}</div>
+  feed.children[feed.children.length - 2].insertAdjacentHTML("afterend", `<div data-v-6ab4ab95="" data-v-e989f123="" id="card-unlockReward-0"><!---->
+    <div data-v-307c1ac7="" data-v-6ab4ab95="" class="contentCardContainer" with-extra-top-margin="" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px); opacity: 1; --v3ee5afce: #245fc1;">
+        <div data-v-615f3480="" data-v-307c1ac7="" class="baseCard baseCard--paper" radius="medium">
+            <div data-v-615f3480="" class="baseCard__cardBackground baseCard__cardBackground--paper-3"></div>
+            <div data-v-307c1ac7="" class="contentCard contentCard--paper contentCard--isFullWidth contentCard--enabled"><!---->
+                <div data-v-307c1ac7="" class="contentCard__gameBackground"></div><!---->
+                <div data-v-307c1ac7="" class="contentCard__slot">
+                    <div data-v-6ab4ab95="" class="rewardCard">
+                        <div data-v-6ab4ab95="" class="rewardCard__rewardContainer">
+                            <div data-v-6ab4ab95="" class="rewardCard__infoContainer">
+                                <div data-v-6ab4ab95="" class="rewardCard__textContainer" style="opacity: 1;">
+                                    <div data-v-6ab4ab95="" class="rewardCard__textContainer__title">${msg}</div>
                                 </div>
                             </div>
                         </div>
@@ -502,25 +502,22 @@ function purge(elements) {
     matchpredred = document.getElementById("autobsc-pick-red")
   }
 
-  const loadedMessageHtml = `<div data-v-900a64ae="" data-v-98f05fca="" id="card-unlockReward-0"><!---->
-    <div data-v-8f245dd1="" data-v-900a64ae="" class="contentCardContainer" with-extra-top-margin="" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px); opacity: 1; --v4b705ce2: #245fc1;">
-        <div data-v-615f3480="" data-v-8f245dd1="" class="baseCard baseCard--paper" radius="medium">
-            <div data-v-615f3480="" class="baseCard__cardBackground baseCard__cardBackground--paper-1"></div>
-            <div data-v-8f245dd1="" class="contentCard contentCard--paper contentCard--isFullWidth contentCard--enabled"><!---->
-                <div data-v-8f245dd1="" class="contentCard__gameBackground"></div><!---->
-                <div data-v-8f245dd1="" class="contentCard__slot">
-                    <div data-v-900a64ae="" class="rewardCard">
-                        <div data-v-900a64ae="" class="rewardCard__rewardContainer">
-                            <div data-v-900a64ae="" class="rewardCard__reward" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, -0.2113px, 0px);">
-                                <picture data-v-58643600="" data-v-900a64ae="" class="cmsImage cmsImage--loaded cmsImage--fullWidth">
-                                    <source data-v-58643600="" type="image/avif" srcset="https://event.supercell.com/brawlstars/assets/rewards/images/4erJXYdE9Gig6xn0quvMVO.avif">
-                                    <source data-v-58643600="" type="image/webp" srcset="https://event.supercell.com/brawlstars/assets/rewards/images/4erJXYdE9Gig6xn0quvMVO.webp"><img data-v-58643600="" class="cmsImage cmsImage--loaded cmsImage--fullWidth" src="https://event.supercell.com/brawlstars/assets/rewards/images/4erJXYdE9Gig6xn0quvMVO.png" loading="lazy">
-                                </picture>
+  const loadedMessageHtml = `<div data-v-6ab4ab95="" data-v-e989f123="" id="card-unlockReward-0"><!---->
+    <div data-v-307c1ac7="" data-v-6ab4ab95="" class="contentCardContainer" with-extra-top-margin="" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px); opacity: 1; --v3ee5afce: #245fc1;">
+        <div data-v-615f3480="" data-v-307c1ac7="" class="baseCard baseCard--paper" radius="medium">
+            <div data-v-615f3480="" class="baseCard__cardBackground baseCard__cardBackground--paper-3"></div>
+            <div data-v-307c1ac7="" class="contentCard contentCard--paper contentCard--isFullWidth contentCard--enabled"><!---->
+                <div data-v-307c1ac7="" class="contentCard__gameBackground"></div><!---->
+                <div data-v-307c1ac7="" class="contentCard__slot">
+                    <div data-v-6ab4ab95="" class="rewardCard">
+                        <div data-v-6ab4ab95="" class="rewardCard__rewardContainer">
+                            <div data-v-6ab4ab95="" class="rewardCard__reward" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, -1.3431px, 0px);">
+                                <picture data-v-58643600="" data-v-6ab4ab95="" class="cmsImage cmsImage--loaded cmsImage--fullWidth"><!----><!----><img data-v-58643600="" class="cmsImage cmsImage--loaded cmsImage--fullWidth" src="https://event.supercell.com/brawlstars/assets/rewards/images/7emETQCs7gjPr7rg1VJyFa.svg" loading="lazy"></picture>
                             </div>
-                            <div data-v-900a64ae="" class="rewardCard__infoContainer">
-                                <div data-v-900a64ae="" class="rewardCard__textContainer" style="opacity: 1;">
-                                    <div data-v-900a64ae="" class="rewardCard__textContainer__title">AutoBSC++ loaded</div>
-                                    <div data-v-900a64ae="" class="rewardCard__textContainer__subTitle">made by laptopcat (based on AutoBSC by catme0w)</div>
+                            <div data-v-6ab4ab95="" class="rewardCard__infoContainer">
+                                <div data-v-6ab4ab95="" class="rewardCard__textContainer" style="opacity: 1;">
+                                    <div data-v-6ab4ab95="" class="rewardCard__textContainer__title">AutoBSC++ loaded</div>
+                                    <div data-v-6ab4ab95="" class="rewardCard__textContainer__subTitle">made by laptopcat (based on AutoBSC by catme0w)</div>
                                 </div>
                             </div>
                         </div>
@@ -531,7 +528,7 @@ function purge(elements) {
             <figure data-v-615f3480="" class="baseCard__corner baseCard__corner--bottomRight"></figure>
         </div><!---->
     </div>
-</div>`;
+</div>`
 })();
 
 function dragElement(elmnt) {
