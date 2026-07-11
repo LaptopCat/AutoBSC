@@ -4,7 +4,7 @@
 // @homepageURL  https://github.com/LaptopCat/AutoBSC
 // @supportURL   https://github.com/LaptopCat/AutoBSC/issues
 // @license      MIT
-// @version      0.3.1
+// @version      0.3.2
 // @description  Auto completes Brawl Stars Championship live stream events
 // @author       laptopcat
 // @match        https://event.supercell.com/brawlstars/*
@@ -100,6 +100,7 @@ function log(msg) {
         </div><!---->
     </div>
 </div>`)
+  feed.children[feed.children.length - 2].scrollIntoView()
 };
 
 function purge(elements) {
