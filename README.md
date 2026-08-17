@@ -1,16 +1,21 @@
 # AutoBSC++
 
-Want all the Starr Drops, sprays and coins, but don't have the time to watch the stream, or it just doesn't match the timezone where you live? AutoBSC++ is here to help you!
+This userscript automatically interacts with the Brawl Stars Championship stream, so you can receive all the rewards without doing anything.
 
-AutoBSC++ can automatically complete the events during the stream, including Cheers, Polls (choosing MVP), Quizzes, Loot Drops and Match Predictions.
+Supported:
+- Cheers (click on an emote during a match)
+- Polls (select MVP after match, etc)
+- Sliders (sometimes appears after a match, prompting you to rate it with a slider)
+- Lootdrops (randomly appearing messages that give you some amount of points if you click within a small amount of time)
+- Predictions (disabled by default, automatically places predictions before a match starts according to selected strategy)
 
-Tested on Brawl Stars Championship (November 2024), but should work on other Championship streams as well.
+Working as of August 16, 2026.
 
-![AutoBSC](https://github.com/LaptopCat/AutoBSC/raw/master/showcase.png)
+![AutoBSC showcase, a bit outdated, will be updated next time](https://github.com/LaptopCat/AutoBSC/raw/master/showcase.png)
 
 ## Quick Start
 
-1. Install [Tampermonkey](https://www.tampermonkey.net/).
+1. Install a userscript loader like [Tampermonkey](https://www.tampermonkey.net/), [Violentmonkey](https://violentmonkey.github.io/) or others.
 
 2. Install AutoBSC by clicking [here](https://github.com/LaptopCat/AutoBSC/raw/master/autobsc.user.js).
 
@@ -18,13 +23,18 @@ Tested on Brawl Stars Championship (November 2024), but should work on other Cha
 
 4. If "AutoBSC++ loaded" is shown in the event logs, then it's working. Now you can just leave the tab open and let it do the work for you.
 
+
+## Known/possible issues
+- Cheers not being sent if no cheer emote selected
+- [Script may fail to submit answers in time if your system clock is wrong](https://github.com/LaptopCat/AutoBSC/issues/6#issuecomment-5309955612)
+
 ## Differences from AutoBSC
 This project is based on [AutoBSC](https://github.com/CatMe0w/AutoBSC), but has many differences from it
 
 - AutoBSC++ has an overlay showing data and allowing you to quickly configure the script
 - Quizzes are always answered correctly
 - Many different ways to autopredict: always blue/red, random team or pick same as majority
-- Automatically collect loot drops
+- Automatically collect loot drops and sliders
 - DOM-based interactions (ensures stuff, such as displaying your points always works)
 - Logging of events, such as sending cheer, prediction or poll can be done in the feed on the right side of the screen
 
@@ -53,11 +63,16 @@ Automatically place predictions to receive 10 points (125 if prediction turns ou
 The strategy used for selecting the team for autopredict. Can be Blue (always choose blue), Red (always choose red), Random (randomly select) or Follow majority (pick same as the majority). Default is Follow majority
 - Feed logging:
 Log events (sending cheer, poll, quiz, etc) to the feed on the right side of the screen. Enabled by default
-- Low Detail Mode:
+- Disable Cheer Graphics:
 Disable cheer graphics to improve performance on low-end hardware. Disabled by default
+- Disable Stream Player:
+Disable the youtube embed from loading. Useful for bad connections or if you dont care about watching the stream. Disabled by default
 
-## Known issues
-- Cheers not being sent if no cheer emote selected
+## Credits
+
+- catme0w: for developing the original [AutoBSC](https://github.com/catme0w/AutoBSC) script
+- 123SONIC321: for making an improved version of the overlay UI, and other suggestions/bug reports
+- Anyone else submitting suggestions/issues or just using the script
 
 ## License
 
